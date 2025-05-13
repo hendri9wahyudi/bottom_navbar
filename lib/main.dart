@@ -1,8 +1,7 @@
-
 import 'package:flutter/material.dart';
+import 'package:flutter2/mainlayout.dart';
 import 'package:get_storage/get_storage.dart';
 import 'login.dart';
-import 'home.dart';
 import 'package:get/get.dart';
 
 void main() async {
@@ -19,9 +18,10 @@ class MyApp extends StatelessWidget {
     final isLoggedIn = _storage.read('user') != null;
 
     return GetMaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Login',
       // Jika user masih login, arahkan ke HomePage, jika tidak, arahkan ke LoginPage
-      home: isLoggedIn ? HomePage() : LoginPage(),
+      home: isLoggedIn ? mainLayout() : LoginPage(),
     );
   }
 }

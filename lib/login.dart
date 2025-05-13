@@ -4,7 +4,7 @@ import 'package:get/get.dart';
 import 'custom.dart';
 import 'storage.dart';
 import 'auth.dart';
-import 'home.dart';
+import 'splash_screen.dart';
 
 class LoginPage extends StatelessWidget {
   final _emailController = TextEditingController();
@@ -34,9 +34,9 @@ class LoginPage extends StatelessWidget {
                 final password = _passwordController.text;
                 if (await _authService.login(email, password)) {
                   _storageService.saveUser(email);
-                  Get.offAll(() => HomePage());
+                  Get.offAll(() => SplashScreen());
                 } else {
-                  Get.snackbar('Error', 'Login failed');
+                  Get.snackbar('Error', 'Login Gagal');
                 }
               },
               child: Text('Login'),
